@@ -1,0 +1,13 @@
+.vscode/
+.idea/
+codecoverage.out
+release/
+vendor/
+.gitignore
+.dockerignore
+README.md
+CHANGELOG.md
+docs/
+.git/
+Dockerfile
+Makefile
