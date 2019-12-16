@@ -31,23 +31,11 @@ $(GO_LINTER):
 	@echo "installing linter..."
 	go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
 
-# release
-OSES := linux
-ARCHS := amd64
-
 .PHONY: release
 release: test
 	@rm -rf ./release
 	@mkdir -p release
-	@for ARCH in $(ARCHS); do \
-		for OS in $(OSES); do \
-			if test "$$OS" = "windows"; then \
-				GOOS=$$OS GOARCH=$$ARCH go build -o release/$(BINARY)-$$OS-$$ARCH.exe; \
-			else \
-				GOOS=$$OS GOARCH=$$ARCH go build -o release/$(BINARY)-$$OS-$$ARCH; \
-			fi; \
-		done; \
-	done
+	@GOOS=linux GOARCH=amd64 go build -o ./release/app
 
 .PHONY: codecov
 codecov: test

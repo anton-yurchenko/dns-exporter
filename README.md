@@ -1,13 +1,15 @@
 # dns-exporter
 [![License](https://img.shields.io/github/license/anton-yurchenko/dns-exporter?style=flat-square)](LICENSE.md) [![Release](https://img.shields.io/github/v/release/anton-yurchenko/dns-exporter?style=flat-square)](https://github.com/anton-yurchenko/dns-exporter/releases/latest) [![Docker Build](https://img.shields.io/docker/cloud/build/antonyurchenko/dns-exporter?style=flat-square)](https://hub.docker.com/r/antonyurchenko/dns-exporter) [![Docker Pulls](https://img.shields.io/docker/pulls/antonyurchenko/dns-exporter?style=flat-square)](https://hub.docker.com/r/antonyurchenko/dns-exporter)
 
-**DNS-EXPORTER** is DNS Archiving/Documentation tool.  
+You are most certainly apply proper Backup procedures for your deployed application, version control your code and so on.... **But what will you do in case one of your DNS entries was misconfigured or deleted?** It will probably mean a downtime to your application while you are trying to figure out where that missing CNAME was pointing or what was stored in that TXT record!  
+
+**DNS-EXPORTER** is designed especially for those cases! Run it periodically against a DNS providers to document your domains configuration.
 
 ## Features:
 - Export all DNS records in Zonefile-like format.  
 - Export to local/remote Git repository allowing easy tracking of changes.  
 - Supported DNS providers: **CloudFlare, Route53**
-- Supported public / private zones.  
+- Supported Public / Private zones.  
 
 ## Example Export:
 ```
@@ -68,22 +70,19 @@ alias-caa.domain.com.	0	IN	CAA	a0123456789abcdef.awsglobalaccelerator.com.
 ```
 
 ## Manual:
-<details><summary>Click to expand</summary>
-
 - [Configuration](docs/configuration.md)
 - Execution
   - [Docker](docs/docker.md)
   - [Kubernetes](docs/kubernetes.md)
-  - [AWS Lambda](docs/aws-lambda.md)
-
-</details>
 
 ## Remarks:
 - **Exported files should never be imported directly!** Those exports does not follow DNS Zonefile format precisely and are intended to be read by human.  
 
 ## Known Issues:
 - `Cloudflare max zones = 50`: this is due to CloudFlare package hardcoded max amount of listed domains:
-    ```res, err = api.makeRequest("GET", "/zones?per_page=50", nil)```
+    ```golang 
+    res, err = api.makeRequest("GET", "/zones?per_page=50", nil)
+    ```
 - `Cloudflare zonefiles always changed`: this is because of a timestamp provided as a part of a SOA record.
 
 ## License
