@@ -71,6 +71,7 @@ alias-caa.domain.com.	0	IN	CAA	a0123456789abcdef.awsglobalaccelerator.com.
 
 ## Manual:
 - [Configuration](docs/configuration.md)
+  - [Permissions](docs/permissions.md)
 - Execution
   - [Docker](docs/docker.md)
   - [Kubernetes](docs/kubernetes.md)

@@ -1,5 +1,5 @@
 # Kubernetes
-Create a ConfigMap with your unique parameters (value is base64 form):
+Create a ConfigMap / Secret with your unique parameters:
 <details><summary>ConfigMap</summary>
 
 ```yaml
@@ -11,22 +11,40 @@ metadata:
   labels:
     app: dns-exporter
 data:
-  delay: MQo=                                                                     # 1
-  git.remote: dHJ1ZQo=                                                            # true
-  git.url: aHR0cHM6Ly9naXRodWIuY29tL3VzZXIvZG5zLWFyY2hpdmUuZ2l0Cg==               # https://github.com/user/dns-archive.git
-  git.branch: bWFzdGVyCg==                                                        # master
-  git.user: bWFjaGluZS11c2VyCg==                                                  # machine-user
-  git.email: bWFjaGluZS11c2VyQGRvbWFpbi5jb20K                                     # machine-user@domain.com
-  git.token: MGFiMTIzNGM1Njc4OTAxMmQzZWY0NWc2Nzg5aDAxMjNpajQ1Njc4OQo=             # 0ab1234c56789012d3ef45g6789h0123ij456789
-  cloudflare.enabled: dHJ1ZQo=                                                    # true
-  cloudflare.email: b3duZXJAZG9tYWluLmNvbQo=                                      # owner@domain.com
-  cloudflare.token: MXp4OTIzNGM1Njc4OTAxMmQzZWY0NWc2Nzg5aDAxMjNpajQ1Njc4OQo=      # 1zx9234c56789012d3ef45g6789h0123ij456789
-  route53.enabled: dHJ1ZQo=                                                       # true
-  route53.region: dXMtd2VzdC0yCg==                                                # us-west-2
+  delay: "1"
+  git.remote: "true"
+  git.url: "https://github.com/user/dns-archive.git"
+  git.branch: "master"
+  cloudflare.enabled: "true"
+  route53.enabled: "true"
+  route53.region: "us-west-2"
 ```
 
 </details>
 <br />
+<details><summary>Secret</summary>
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dns-exporter
+  namespace: default
+  labels:
+    app: dns-exporter
+type: Opaque
+data:
+  git.user: bWFjaGluZS11c2Vy                                                      # machine-user
+  git.email: bWFjaGluZS11c2VyQGRvbWFpbi5jb20=                                     # machine-user@domain.com
+  git.token: MGFiMTIzNGM1Njc4OTAxMmQzZWY0NWc2Nzg5aDAxMjNpajQ1Njc4OQ==             # 0ab1234c56789012d3ef45g6789h0123ij456789
+  cloudflare.email: b3duZXJAZG9tYWluLmNvbQ==                                      # owner@domain.com
+  cloudflare.token: MXp4OTIzNGM1Njc4OTAxMmQzZWY0NWc2Nzg5aDAxMjNpajQ1Njc4OQ==      # 1zx9234c56789012d3ef45g6789h0123ij456789
+```
+
+</details>
+<br />
+
+- Remember to store values in base64 form with no new lines (`echo -n <token> | base64`)
 
 Spin up a pod manually or create a cronjob:
 
@@ -67,17 +85,17 @@ spec:
               key: git.branch
         - name: GIT_USER
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: dns-exporter
               key: git.user
         - name: GIT_EMAIL
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: dns-exporter
               key: git.email
         - name: GIT_TOKEN
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: dns-exporter
               key: git.token
         - name: CLOUDFLARE_ENABLED
@@ -87,12 +105,12 @@ spec:
               key: cloudflare.enabled
         - name: CLOUDFLARE_EMAIL
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: dns-exporter
               key: cloudflare.email
         - name: CLOUDFLARE_TOKEN
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: dns-exporter
               key: cloudflare.token
         - name: ROUTE53_ENABLED
@@ -132,62 +150,62 @@ spec:
             env:
               - name: DELAY
                 valueFrom:
-                  configMapKeyRef:
+                  secretKeyRef:
                     name: dns-exporter
                     key: delay
               - name: GIT_REMOTE_ENABLED
                 valueFrom:
-                  configMapKeyRef:
+                  secretKeyRef:
                     name: dns-exporter
                     key: git.remote
               - name: GIT_URL
                 valueFrom:
-                  configMapKeyRef:
+                  secretKeyRef:
                     name: dns-exporter
                     key: git.url
               - name: GIT_BRANCH
                 valueFrom:
-                  configMapKeyRef:
+                  secretKeyRef:
                     name: dns-exporter
                     key: git.branch
               - name: GIT_USER
                 valueFrom:
-                  configMapKeyRef:
+                  secretKeyRef:
                     name: dns-exporter
                     key: git.user
               - name: GIT_EMAIL
                 valueFrom:
-                  configMapKeyRef:
+                  secretKeyRef:
                     name: dns-exporter
                     key: git.email
               - name: GIT_TOKEN
                 valueFrom:
-                  configMapKeyRef:
+                  secretKeyRef:
                     name: dns-exporter
                     key: git.token
               - name: CLOUDFLARE_ENABLED
                 valueFrom:
-                  configMapKeyRef:
+                  secretKeyRef:
                     name: dns-exporter
                     key: cloudflare.enabled
               - name: CLOUDFLARE_EMAIL
                 valueFrom:
-                  configMapKeyRef:
+                  secretKeyRef:
                     name: dns-exporter
                     key: cloudflare.email
               - name: CLOUDFLARE_TOKEN
                 valueFrom:
-                  configMapKeyRef:
+                  secretKeyRef:
                     name: dns-exporter
                     key: cloudflare.token
               - name: ROUTE53_ENABLED
                 valueFrom:
-                  configMapKeyRef:
+                  secretKeyRef:
                     name: dns-exporter
                     key: route53.enabled
               - name: AWS_REGION
                 valueFrom:
-                  configMapKeyRef:
+                  secretKeyRef:
                     name: dns-exporter
                     key: route53.region
           restartPolicy: OnFailure
@@ -219,37 +237,37 @@ spec:
       env:
         - name: DELAY
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: dns-exporter
               key: delay
         - name: GIT_REMOTE_ENABLED
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: dns-exporter
               key: git.remote
         - name: CLOUDFLARE_ENABLED
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: dns-exporter
               key: cloudflare.enabled
         - name: CLOUDFLARE_EMAIL
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: dns-exporter
               key: cloudflare.email
         - name: CLOUDFLARE_TOKEN
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: dns-exporter
               key: cloudflare.token
         - name: ROUTE53_ENABLED
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: dns-exporter
               key: route53.enabled
         - name: AWS_REGION
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: dns-exporter
               key: route53.region
   volumes:
