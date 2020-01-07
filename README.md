@@ -2,7 +2,7 @@
 [![Release](https://img.shields.io/github/v/release/anton-yurchenko/dns-exporter)](https://github.com/anton-yurchenko/dns-exporter/releases/latest)
 [![codecov](https://codecov.io/gh/anton-yurchenko/dns-exporter/branch/master/graph/badge.svg)](https://codecov.io/gh/anton-yurchenko/dns-exporter)
 [![Go Report Card](https://goreportcard.com/badge/github.com/anton-yurchenko/dns-exporter)](https://goreportcard.com/report/github.com/anton-yurchenko/dns-exporter)
-[![Tests](https://github.com/anton-yurchenko/dns-exporter/workflows/tests/badge.svg)](https://github.com/anton-yurchenko/dns-exporter/actions)
+[![Tests](https://github.com/anton-yurchenko/dns-exporter/workflows/coverage/badge.svg)](https://github.com/anton-yurchenko/dns-exporter/actions)
 [![Docker Build](https://img.shields.io/docker/cloud/build/antonyurchenko/dns-exporter)](https://hub.docker.com/r/antonyurchenko/dns-exporter)
 [![Docker Pulls](https://img.shields.io/docker/pulls/antonyurchenko/dns-exporter)](https://hub.docker.com/r/antonyurchenko/dns-exporter)
 [![License](https://img.shields.io/github/license/anton-yurchenko/dns-exporter)](LICENSE.md)
