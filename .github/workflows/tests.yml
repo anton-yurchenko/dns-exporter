@@ -62,6 +62,6 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.txt
-          flags: coverage
+          flags: tests
           name: pull-request
           fail_ci_if_error: true
