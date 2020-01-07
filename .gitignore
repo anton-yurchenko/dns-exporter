@@ -1,8 +1,12 @@
+# OS
+**/.DS_Store
+
 # IDE
-.vscode/
-.idea/
+/.vscode/
+**/__debug_bin
+/.idea/
 
 # project
-codecoverage.out
-release/
-vendor/
+coverage.txt
+/vendor/
+/release/

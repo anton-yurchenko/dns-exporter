@@ -1,14 +1,13 @@
-name: Build
+name: tests
 on:
-  push:
+  pull_request:
     branches:
       - master
-      - aws-lambda
-  pull_request:
+      - dev
 
 jobs:
   lint:
-    name: Lint
+    name: Linter
     runs-on: ubuntu-latest
     steps:
       - name: Init
@@ -28,14 +27,14 @@ jobs:
               dep ensure
           fi
 
-      - name: GoLint
+      - name: Lint
         run: |
           export PATH=$PATH:$(go env GOPATH)/bin
           go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
           golangci-lint run ./...
 
   test:
-    name: Test
+    name: Unit Test
     runs-on: ubuntu-latest
     steps:
       - name: Init
@@ -55,5 +54,14 @@ jobs:
               dep ensure
           fi
 
-      - name: GoTest
-        run: go test ./... -race -coverprofile codecoverage.out
+      - name: Test
+        run: go test $(go list ./... | grep -v vendor | grep -v mocks) -race -coverprofile=coverage.txt -covermode=atomic
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage.txt
+          flags: unittests
+          name: pull-request
+          fail_ci_if_error: true
