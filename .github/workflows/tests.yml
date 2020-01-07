@@ -4,6 +4,9 @@ on:
     branches:
       - master
       - dev
+  push:
+    branches:
+      - master
 
 jobs:
   lint:
