@@ -148,7 +148,7 @@ www.domain2.com.	1	IN	CNAME	domain2.com.`,
 
 	expected := map[string]string{
 		z.Public["domain1.com"]: `;; SOA Record
-domain1.com.	3600	IN	SOA	domain1.com. root.domain1.com. 2032317624 7200 3600 86400 3600
+domain1.com.	3600	IN	SOA	domain1.com. root.domain1.com. 1 7200 3600 86400 3600
 
 ;; A Records
 *.domain1.com.	1	IN	A	1.2.3.4
@@ -157,7 +157,7 @@ domain1.com.	1	IN	A	1.2.3.4
 ;; CNAME Records
 www.domain1.com.	1	IN	CNAME	domain1.com.`,
 		z.Public["domain2.com"]: `;; SOA Record
-domain2.com.	3600	IN	SOA	domain2.com. root.domain2.com. 2032317624 7200 3600 86400 3600
+domain2.com.	3600	IN	SOA	domain2.com. root.domain2.com. 1 7200 3600 86400 3600
 
 ;; A Records
 *.domain2.com.	1	IN	A	1.2.3.4

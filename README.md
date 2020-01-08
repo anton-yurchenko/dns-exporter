@@ -90,7 +90,6 @@ alias-caa.domain.com.	0	IN	CAA	a0123456789abcdef.awsglobalaccelerator.com.
     ```golang 
     res, err = api.makeRequest("GET", "/zones?per_page=50", nil)
     ```
-- `Cloudflare zonefiles always changed`: this is because of a timestamp provided as a part of a SOA record.
 
 ## License
 [MIT](LICENSE.md) © 2019-present Anton Yurchenko
