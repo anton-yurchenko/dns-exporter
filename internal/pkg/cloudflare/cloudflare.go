@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"regexp"
 	"strings"
 	"sync"
 	"time"
@@ -59,12 +60,13 @@ func (z Zones) Export(c HTTPClient, delay int, errs chan error, wg *sync.WaitGro
 		}
 
 		// write zonefile
-		_, err = utils.WriteToFile(
-			domain,
-			string(";; SOA Record\n"+strings.TrimPrefix(strings.Split(string(content), ";; SOA Record")[1], "\n")),
-			dir,
-			fs,
-		)
+		c, err := format(content)
+		if err != nil {
+			errs <- errors.Wrap(err, fmt.Sprintf("CloudFlare: error exporting zone: '%s': formatter error", domain))
+			return
+		}
+
+		_, err = utils.WriteToFile(domain, c, dir, fs)
 		if err != nil {
 			errs <- errors.Wrap(err, fmt.Sprintf("CloudFlare: error exporting zone: '%s'", domain))
 			return
@@ -99,4 +101,34 @@ func exportZone(c HTTPClient, zoneID string) ([]byte, error) {
 	}
 
 	return b, nil
+}
+
+// format returns a formatted zonefile content
+func format(input []byte) (string, error) {
+	// replace SOA record 'serial' field, which is a unixtime of a query
+	// this field should be static in order for operator to be able to track changes through git easily
+	// otherwise, every zone is updated on each run
+	body := strings.Split(
+		string(input),
+		";; SOA Record",
+	)[1]
+
+	body = strings.TrimPrefix(body, "\n")
+
+	rows := strings.Split(body, "\n")
+
+	expression := `^(?P<name>\S*)\s*(?P<ttl>\d*)\s*(?P<class>IN*)\s*(?P<abbrevation>SOA*)\s*(?P<nameserver>\S*)\s*(?P<email>\S*)\s*(?P<serial>\d*)\s*(?P<refresh>\d*)\s*(?P<retry>\d*)\s*(?P<expiry>\d*)\s*(?P<minimum>\d*)\s*$`
+	regex := regexp.MustCompile(expression)
+
+	if regex.MatchString(rows[0]) {
+		var content []string
+
+		content = append(content, ";; SOA Record")
+		content = append(content, regex.ReplaceAllString(rows[0], "${1}\t${2}\t${3}\t${4}\t${5} ${6} 1 ${8} ${9} ${10} ${11}"))
+		content = append(content, rows[1:]...)
+
+		return strings.Join(content, "\n"), nil
+	}
+
+	return "", errors.New("error matching SOA record")
 }
