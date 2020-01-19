@@ -114,6 +114,15 @@ func (p Project) Commit(timestamp time.Time, meta, data billy.Filesystem) error 
 		return errors.Wrap(err, "error adding modified files")
 	}
 
+	s, err := w.Status()
+	if err != nil {
+		return errors.Wrap(err, "error retreiving git status")
+	}
+
+	if s.IsClean() {
+		return errors.New("nothing to commit, working tree clean")
+	}
+
 	_, err = w.Commit(timestamp.Format("2006-01-02T15:04:05"), &git.CommitOptions{
 		All: true,
 		Author: &object.Signature{

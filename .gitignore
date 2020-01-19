@@ -8,5 +8,6 @@
 
 # project
 coverage.txt
+/data/
 /vendor/
 /release/
