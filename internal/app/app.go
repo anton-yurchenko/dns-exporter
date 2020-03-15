@@ -207,14 +207,17 @@ func Entrypoint() {
 	}
 
 	log.Info("commiting changes to local git repository")
-	if err := conf.Project.Commit(time.Now(), conf.FileSystem.Meta, conf.FileSystem.Data); err != nil {
-		log.Fatal(err)
-	}
-
-	if conf.Project.Remote.URL != "" {
-		log.Info("pushing to remote git repository")
-		if err := conf.Project.Push(conf.FileSystem.Meta); err != nil {
-			log.Fatal(err)
+	err = conf.Project.Commit(time.Now(), conf.FileSystem.Meta, conf.FileSystem.Data)
+	if err == nil {
+		if conf.Project.Remote.URL != "" {
+			log.Info("pushing to remote git repository")
+			if err := conf.Project.Push(conf.FileSystem.Meta); err != nil {
+				log.Fatal(err)
+			}
 		}
+	} else if err.Error() == "nothing to commit, working tree clean" {
+		log.Info(err)
+	} else {
+		log.Fatal(err)
 	}
 }

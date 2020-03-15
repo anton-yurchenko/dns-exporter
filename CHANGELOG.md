@@ -1,3 +1,7 @@
+## [1.0.3] - 2020-01-19
+### Fixed
+- Empty commits
+
 ## [1.0.2] - 2020-01-08
 ### Fixed
 - Cloudflare zonefiles always change
