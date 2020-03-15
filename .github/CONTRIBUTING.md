@@ -6,7 +6,6 @@
 - Provide as much information as you can, even if not requested by an Issue Template.
 
 ## Pull Request:
-- Open [Pull Request](https://github.com/anton-yurchenko/dns-exporter/pulls) towards **dev** branch.
 - Ensure [Pull Request](https://github.com/anton-yurchenko/dns-exporter/pulls) description clearly describes the problem and solution.
 - Make sure all Tests are passed and there is no Code Coverage degradation.
 - Please follow [AngularJS Commit Message Guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines)

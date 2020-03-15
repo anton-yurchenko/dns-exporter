@@ -199,7 +199,7 @@ func format(marker *bool, r *[]Record, b, p *bytes.Buffer, t string) error {
 			}
 		} else {
 			if !*marker {
-				_, err := p.WriteString(fmt.Sprintf(";; Route53 Alias Records\n"))
+				_, err := p.WriteString(";; Route53 Alias Records\n")
 				if err != nil {
 					return errors.New("error adding alias title")
 				}
@@ -215,7 +215,7 @@ func format(marker *bool, r *[]Record, b, p *bytes.Buffer, t string) error {
 		}
 	}
 
-	_, err = b.WriteString(fmt.Sprintf("\n"))
+	_, err = b.WriteString("\n")
 	if err != nil {
 		return fmt.Errorf("error formatting records of type: %s", t)
 	}
