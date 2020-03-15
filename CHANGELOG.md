@@ -1,3 +1,7 @@
+## [1.0.4] - 2020-03-15
+### Changed
+- Fix linter issues
+
 ## [1.0.3] - 2020-01-19
 ### Fixed
 - Empty commits
