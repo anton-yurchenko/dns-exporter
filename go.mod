@@ -3,7 +3,7 @@ module github.com/anton-yurchenko/dns-exporter
 go 1.13
 
 require (
-	github.com/aws/aws-sdk-go v1.29.24
+	github.com/aws/aws-sdk-go v1.29.29
 	github.com/cloudflare/cloudflare-go v0.11.4
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.4.2
