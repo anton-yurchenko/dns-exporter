@@ -6,7 +6,7 @@ require (
 	github.com/aws/aws-sdk-go v1.30.18
 	github.com/cloudflare/cloudflare-go v0.11.6
 	github.com/pkg/errors v0.9.1
-	github.com/sirupsen/logrus v1.5.0
+	github.com/sirupsen/logrus v1.6.0
 	github.com/spf13/afero v1.2.2
 	github.com/spf13/viper v1.7.0
 	github.com/stretchr/testify v1.5.1
