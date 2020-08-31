@@ -1,3 +1,7 @@
+## [1.0.5] - 2020-08-31
+### Changed
+- Update Dependencies
+
 ## [1.0.4] - 2020-03-15
 ### Changed
 - Fix linter issues
