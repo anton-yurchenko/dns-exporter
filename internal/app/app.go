@@ -158,8 +158,8 @@ func initGit(v *viper.Viper) {
 }
 
 // Entrypoint of an application
-func Entrypoint() {
-	log.Info("dns-exporter started")
+func Entrypoint(version string) {
+	log.Info(fmt.Sprintf("dns-exporter v%s", version))
 
 	dir, err := utils.ValidateDir(fmt.Sprintf("./%v/.git", "data"), false, conf.FileSystem.Global)
 	if err != nil {

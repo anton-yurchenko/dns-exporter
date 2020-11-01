@@ -1,10 +1,14 @@
 package main
 
 import (
+	"os"
+
 	"github.com/anton-yurchenko/dns-exporter/internal/app"
 	log "github.com/sirupsen/logrus"
-	"os"
 )
+
+// Version of an application
+const Version string = "1.0.7"
 
 func init() {
 	log.SetReportCaller(false)
@@ -19,5 +23,5 @@ func init() {
 }
 
 func main() {
-	app.Entrypoint()
+	app.Entrypoint(Version)
 }

@@ -1,22 +1,30 @@
-## [1.0.5] - 2020-08-31
+## [1.0.7](https://github.com/anton-yurchenko/dns-exporter/releases/tag/v1.0.7) - 2020-10-01
 ### Changed
 - Update Dependencies
 
-## [1.0.4] - 2020-03-15
+## [1.0.6](https://github.com/anton-yurchenko/dns-exporter/releases/tag/v1.0.6) - 2020-08-31
+### Changed
+- Update Dependencies
+
+## [1.0.5](https://github.com/anton-yurchenko/dns-exporter/releases/tag/v1.0.5) - 2020-08-31
+### Changed
+- Update Dependencies
+
+## [1.0.4](https://github.com/anton-yurchenko/dns-exporter/releases/tag/v1.0.4) - 2020-03-15
 ### Changed
 - Fix linter issues
 
-## [1.0.3] - 2020-01-19
+## [1.0.3](https://github.com/anton-yurchenko/dns-exporter/releases/tag/v1.0.3) - 2020-01-19
 ### Fixed
 - Empty commits
 
-## [1.0.2] - 2020-01-08
+## [1.0.2](https://github.com/anton-yurchenko/dns-exporter/releases/tag/v1.0.2) - 2020-01-08
 ### Fixed
 - Cloudflare zonefiles always change
 
-## [1.0.1] - 2020-01-07
+## [1.0.1](https://github.com/anton-yurchenko/dns-exporter/releases/tag/v1.0.1) - 2020-01-07
 ### Changed
 - Docker image is now built from scratch
 
-## [1.0.0] - 2019-12-14
-- First stable release.
+## [1.0.0](https://github.com/anton-yurchenko/dns-exporter/releases/tag/v1.0.0) - 2019-12-14
+- First stable release

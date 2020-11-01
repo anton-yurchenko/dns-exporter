@@ -1,4 +1,5 @@
 # dns-exporter
+
 [![Release](https://img.shields.io/github/v/release/anton-yurchenko/dns-exporter)](https://github.com/anton-yurchenko/dns-exporter/releases/latest)
 [![codecov](https://codecov.io/gh/anton-yurchenko/dns-exporter/branch/master/graph/badge.svg)](https://codecov.io/gh/anton-yurchenko/dns-exporter)
 [![Go Report Card](https://goreportcard.com/badge/github.com/anton-yurchenko/dns-exporter)](https://goreportcard.com/report/github.com/anton-yurchenko/dns-exporter)
@@ -11,13 +12,15 @@ You are most certainly apply proper Backup procedures for your deployed applicat
 
 **DNS-EXPORTER** is designed especially for those cases! Run it periodically against a DNS providers to document your domains configuration.
 
-## Features:
+## Features
+
 - Export all DNS records in Zonefile-like format.  
 - Export to local/remote Git repository allowing easy tracking of changes.  
 - Supported DNS providers: **CloudFlare, Route53**
 - Supported Public / Private zones.  
 
-## Example Export:
+## Example Export
+
 ```
 ;; SOA Record
 domain.com.	900	IN	SOA	ns-245.awsdns-33.com. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400
@@ -72,24 +75,20 @@ ca.domain.com.	300	IN	CAA	0 issuewild ";"
 alias-a.domain.com.	0	IN	A	a0123456789abcdef.awsglobalaccelerator.com.
 alias-c.domain.com.	0	IN	CNAME	a0123456789abcdef.awsglobalaccelerator.com.
 alias-caa.domain.com.	0	IN	CAA	a0123456789abcdef.awsglobalaccelerator.com.
-
 ```
 
-## Manual:
+## Manual
+
 - [Configuration](docs/configuration.md)
   - [Permissions](docs/permissions.md)
 - Execution
   - [Docker](docs/docker.md)
   - [Kubernetes](docs/kubernetes.md)
 
-## Remarks:
+## Remarks
+
 - **Exported files should never be imported directly!** Those exports does not follow DNS Zonefile format precisely and are intended to be read by human.  
 
-## Known Issues:
-- `Cloudflare max zones = 50`: this is due to CloudFlare package hardcoded max amount of listed domains:
-    ```golang 
-    res, err = api.makeRequest("GET", "/zones?per_page=50", nil)
-    ```
-
 ## License
+
 [MIT](LICENSE.md) © 2019-present Anton Yurchenko
