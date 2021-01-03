@@ -1,3 +1,7 @@
+## [1.0.8](https://github.com/anton-yurchenko/dns-exporter/releases/tag/v1.0.8) - 2021-01-03
+### Changed
+- Update Dependencies
+
 ## [1.0.7](https://github.com/anton-yurchenko/dns-exporter/releases/tag/v1.0.7) - 2020-10-01
 ### Changed
 - Update Dependencies
