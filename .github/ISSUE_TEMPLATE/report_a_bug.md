@@ -7,7 +7,7 @@ assignees: anton-yurchenko
 
 ---
 
-### Description:  
+### Description:
 A clear and concise description of what the bug is
 <!--
     !!! SANITIZE PROVIDED ENTRIES !!!

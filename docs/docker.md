@@ -1,6 +1,9 @@
 # Docker
-### Manual:
-Pass all parameters to `docker run` command, for example:  
+
+### Manual
+
+Pass all parameters to `docker run` command, for example: 
+
 ```
 docker run -it \
     -e GIT_REMOTE_ENABLED=false \
@@ -10,9 +13,10 @@ docker run -it \
     antonyurchenko/dns-exporter:latest
 ```
 
+### Docker-Compose
 
-### Docker-Compose:
 Create a **.env** file with your unique parameters:
+
 <details><summary>.env</summary>
 
 ```
@@ -34,6 +38,7 @@ AWS_REGION=us-west-2
 <br />
 
 Create a **docker-compose.yaml**:
+
 <details><summary>docker-compose.yaml</summary>
 
 ```yaml

@@ -1,4 +1,5 @@
 # Configuration
+
 **DNS-EXPORTER** configuration is managed via the following environmental variables:
 - `DELAY`: Providers API calls delays, applied per provider, default 1(sec).
 - `GIT_REMOTE_ENABLED`: Set to `"true"` if you want to push exported files to remote git repository
@@ -14,6 +15,7 @@
 - `AWS_REGION`: Substitute your desired AWS Region
 
 In addition to that, enabling **AWS Route53**, it is expected that AWS authentication is pre-configured by:
+
 - attaching AWS IAM Role
 - settings additional environmental variables `AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY`
 - mounting `/home/app/.aws` directory with `credentials / config` files

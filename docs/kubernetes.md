@@ -1,5 +1,7 @@
 # Kubernetes
+
 Create a ConfigMap / Secret with your unique parameters:
+
 <details><summary>ConfigMap</summary>
 
 ```yaml
@@ -22,6 +24,7 @@ data:
 
 </details>
 <br />
+
 <details><summary>Secret</summary>
 
 ```yaml
@@ -213,7 +216,8 @@ spec:
 
 </details>
 
-### Local Archive Only:
+### Local Archive Only
+
 You will have to create a persistent volume and attach it as `/opt/data`. 
 Here is an example of changes you might be required to apply to your manifests:
 
