@@ -4,7 +4,7 @@ go 1.15
 
 require (
 	github.com/aws/aws-sdk-go v1.38.10
-	github.com/cloudflare/cloudflare-go v0.13.8
+	github.com/cloudflare/cloudflare-go v0.15.0
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.8.0
 	github.com/spf13/afero v1.5.1
