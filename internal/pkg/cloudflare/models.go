@@ -1,6 +1,7 @@
 package cf
 
 import (
+	"context"
 	"github.com/cloudflare/cloudflare-go"
 	"net/http"
 )
@@ -12,7 +13,7 @@ type Zones struct {
 
 // Client interface
 type Client interface {
-	ListZones(...string) ([]cloudflare.Zone, error)
+	ListZones(context.Context, ...string) ([]cloudflare.Zone, error)
 }
 
 // HTTPClient interface

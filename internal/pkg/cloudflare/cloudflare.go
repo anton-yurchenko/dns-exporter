@@ -1,6 +1,7 @@
 package cf
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -20,7 +21,7 @@ import (
 func (z Zones) Fetch(c Client, errs chan error, wg *sync.WaitGroup) {
 	defer wg.Done()
 
-	r, err := c.ListZones()
+	r, err := c.ListZones(context.Background())
 	if err != nil {
 		errs <- errors.Wrap(err, "CloudFlare: error fetching zones")
 		return
