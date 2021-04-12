@@ -1,3 +1,10 @@
+## [1.0.9](https://github.com/anton-yurchenko/dns-exporter/releases/tag/v1.0.9) - 2021-04-12
+### Changed
+- Update Dependencies
+
+### Fixed
+- CloudFlare client interface ([breaking change](https://github.com/cloudflare/cloudflare-go/commit/0047fb41348f4fb8e1a09cc5ec2d25ecb37436dc))
+
 ## [1.0.8](https://github.com/anton-yurchenko/dns-exporter/releases/tag/v1.0.8) - 2021-01-03
 ### Changed
 - Update Dependencies
