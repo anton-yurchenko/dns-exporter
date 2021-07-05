@@ -8,7 +8,7 @@ import (
 )
 
 // Version of an application
-const Version string = "1.0.11"
+const Version string = "1.0.12"
 
 func init() {
 	log.SetReportCaller(false)
