@@ -3,7 +3,8 @@ package main
 import (
 	"os"
 
-	"github.com/anton-yurchenko/dns-exporter/internal/app"
+	"dns-exporter/internal/app"
+
 	log "github.com/sirupsen/logrus"
 )
 

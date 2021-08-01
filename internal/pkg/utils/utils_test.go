@@ -4,7 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/anton-yurchenko/dns-exporter/internal/pkg/utils"
+	"dns-exporter/internal/pkg/utils"
+
 	"github.com/spf13/afero"
 )
 

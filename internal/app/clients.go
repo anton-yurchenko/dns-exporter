@@ -1,14 +1,15 @@
 package app
 
 import (
+	cf "dns-exporter/internal/pkg/cloudflare"
+	r53 "dns-exporter/internal/pkg/route53"
 	"fmt"
-	cf "github.com/anton-yurchenko/dns-exporter/internal/pkg/cloudflare"
-	r53 "github.com/anton-yurchenko/dns-exporter/internal/pkg/route53"
+	"os"
+
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/route53"
 	"github.com/cloudflare/cloudflare-go"
 	"github.com/pkg/errors"
-	"os"
 )
 
 // newCloudFlareClient returns new Cloudflare client

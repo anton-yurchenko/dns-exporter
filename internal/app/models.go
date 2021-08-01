@@ -1,12 +1,18 @@
 package app
 
 import (
-	cf "github.com/anton-yurchenko/dns-exporter/internal/pkg/cloudflare"
-	vcs "github.com/anton-yurchenko/dns-exporter/internal/pkg/git"
-	r53 "github.com/anton-yurchenko/dns-exporter/internal/pkg/route53"
+	cf "dns-exporter/internal/pkg/cloudflare"
+
+	vcs "dns-exporter/internal/pkg/git"
+
+	r53 "dns-exporter/internal/pkg/route53"
+
 	"github.com/spf13/afero"
 	"gopkg.in/src-d/go-billy.v4"
 )
+
+// Version contains current application version
+const Version string = "1.0.13"
 
 // Configuration contains app runtime config
 type Configuration struct {

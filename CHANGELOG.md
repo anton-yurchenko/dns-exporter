@@ -1,3 +1,9 @@
+## [1.0.13] - 2021-08-01
+### Changed
+- Update Dependencies
+- Package name and imports
+- Upgraded Go version
+
 ## [1.0.12] - 2021-07-05
 ### Changed
 - Update Dependencies
@@ -52,6 +58,7 @@
 ## [1.0.0] - 2019-12-14
 - First stable release
 
+[1.0.13]: https://github.com/anton-yurchenko/dns-exporter/compare/v1.0.12...v1.0.13
 [1.0.12]: https://github.com/anton-yurchenko/dns-exporter/compare/v1.0.11...v1.0.12
 [1.0.11]: https://github.com/anton-yurchenko/dns-exporter/compare/v1.0.10...v1.0.11
 [1.0.10]: https://github.com/anton-yurchenko/dns-exporter/compare/v1.0.9...v1.0.10

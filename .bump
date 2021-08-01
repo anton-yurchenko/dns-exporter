@@ -1,0 +1,6 @@
+[docker]
+enabled = true
+
+[go]
+enabled = true
+directories = [ 'internal/app' ]

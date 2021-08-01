@@ -7,8 +7,9 @@ import (
 	"strings"
 	"time"
 
-	vcs "github.com/anton-yurchenko/dns-exporter/internal/pkg/git"
-	"github.com/anton-yurchenko/dns-exporter/internal/pkg/utils"
+	vcs "dns-exporter/internal/pkg/git"
+	"dns-exporter/internal/pkg/utils"
+
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/afero"
 	"github.com/spf13/viper"

@@ -1,4 +1,4 @@
-module github.com/anton-yurchenko/dns-exporter
+module dns-exporter
 
 go 1.16
 

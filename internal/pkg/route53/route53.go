@@ -6,7 +6,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/anton-yurchenko/dns-exporter/internal/pkg/utils"
+	"dns-exporter/internal/pkg/utils"
+
 	"github.com/aws/aws-sdk-go/service/route53"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"

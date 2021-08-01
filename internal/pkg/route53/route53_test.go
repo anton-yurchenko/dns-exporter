@@ -7,8 +7,9 @@ import (
 	"sync"
 	"testing"
 
-	r53 "github.com/anton-yurchenko/dns-exporter/internal/pkg/route53"
-	"github.com/anton-yurchenko/dns-exporter/mocks"
+	r53 "dns-exporter/internal/pkg/route53"
+	"dns-exporter/mocks"
+
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/route53"
 	log "github.com/sirupsen/logrus"

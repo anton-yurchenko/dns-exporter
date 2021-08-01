@@ -3,7 +3,8 @@ package vcs_test
 import (
 	"testing"
 
-	vcs "github.com/anton-yurchenko/dns-exporter/internal/pkg/git"
+	vcs "dns-exporter/internal/pkg/git"
+
 	"gopkg.in/src-d/go-billy.v4"
 	"gopkg.in/src-d/go-billy.v4/memfs"
 	"gopkg.in/src-d/go-git.v4"

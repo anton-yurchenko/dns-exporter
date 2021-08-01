@@ -10,8 +10,10 @@ import (
 	"sync"
 	"testing"
 
-	cf "github.com/anton-yurchenko/dns-exporter/internal/pkg/cloudflare"
-	"github.com/anton-yurchenko/dns-exporter/mocks"
+	cf "dns-exporter/internal/pkg/cloudflare"
+
+	"dns-exporter/mocks"
+
 	"github.com/cloudflare/cloudflare-go"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/afero"
@@ -30,11 +32,11 @@ func TestFetch(t *testing.T) {
 	wg.Add(1)
 
 	reply := []cloudflare.Zone{
-		cloudflare.Zone{
+		{
 			ID:   "1",
 			Name: "domain1.com",
 		},
-		cloudflare.Zone{
+		{
 			ID:   "2",
 			Name: "domain2.com",
 		},

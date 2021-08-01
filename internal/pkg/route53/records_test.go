@@ -5,7 +5,8 @@ import (
 	"reflect"
 	"testing"
 
-	r53 "github.com/anton-yurchenko/dns-exporter/internal/pkg/route53"
+	r53 "dns-exporter/internal/pkg/route53"
+
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/route53"
 )
