@@ -3,7 +3,7 @@ module dns-exporter
 go 1.16
 
 require (
-	github.com/aws/aws-sdk-go v1.41.14
+	github.com/aws/aws-sdk-go v1.42.16
 	github.com/cloudflare/cloudflare-go v0.27.0
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.8.1
