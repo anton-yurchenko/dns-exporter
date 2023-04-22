@@ -1,3 +1,5 @@
+# :warning: THIS PROJECT IS DEPRECATED :warning:
+
 # dns-exporter
 
 [![Release](https://img.shields.io/github/v/release/anton-yurchenko/dns-exporter)](https://github.com/anton-yurchenko/dns-exporter/releases/latest)
